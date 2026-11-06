@@ -37,6 +37,22 @@
   .check{display:flex;align-items:center;gap:8px;margin:8px 0;font-weight:500}
   .check input{accent-color:var(--accent);width:16px;height:16px}
   .hint{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.45}
+  .photo{border:1px dashed var(--line);border-radius:12px;padding:12px;background:var(--card);margin-top:6px}
+  .photo-row{display:flex;gap:10px;align-items:center}
+  .photo-row img{width:52px;height:52px;object-fit:cover;border-radius:8px;display:none;flex:none}
+  .photo-row.has img{display:block}
+  .photo label.up{display:inline-flex;align-items:center;gap:6px;margin:0;font-weight:600;font-size:13.5px;cursor:pointer;border:1px solid var(--ink);border-radius:999px;padding:7px 14px;background:transparent}
+  .photo label.up:hover{background:var(--ink);color:#fff}
+  .photo input[type=file]{display:none}
+  .photo .rm{display:none;border:none;background:none;color:var(--muted);font-size:13px;text-decoration:underline;padding:4px;font-weight:500}
+  .photo-row.has .rm{display:inline}
+  .photo .or{font-size:12.5px;color:var(--muted);margin:10px 0 5px}
+  .photo input[type=url]{font-size:13.5px;padding:8px 10px}
+  .mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+  .mini .photo{padding:8px;margin:0;text-align:center}
+  .mini .photo-row{flex-direction:column;gap:6px}
+  .mini .photo-row img{width:100%;height:54px}
+  .mini label.up{font-size:12px;padding:5px 10px}
   input[type=color]{width:100%;height:42px;border:1px solid var(--line);border-radius:10px;padding:3px;background:var(--card)}
   .stage{display:flex;flex-direction:column;min-height:0;padding:16px 22px 22px}
   .bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px}
@@ -84,7 +100,36 @@
       </fieldset>
 
       <fieldset>
-        <legend>2 · Benefits</legend>
+        <legend>2 · Photos <span style="text-transform:none;letter-spacing:0;font-weight:500">(optional)</span></legend>
+        <label>Main photo</label>
+        <div class="photo">
+          <div class="photo-row" id="heroRow">
+            <img id="heroThumb" alt="">
+            <label class="up">⬆ Upload photo<input type="file" id="heroFile" accept="image/*"></label>
+            <button type="button" class="rm" data-rm="hero">Remove</button>
+          </div>
+          <p class="or">or paste an image link</p>
+          <input type="url" id="heroUrl" placeholder="https://…/photo.jpg">
+        </div>
+        <label for="heroAlt">Describe the photo (for blind visitors &amp; Google)</label>
+        <input type="text" id="heroAlt" placeholder="e.g. Friends looking at a map on a mountain trail">
+        <label for="heroLayout">Photo layout</label>
+        <select id="heroLayout">
+          <option value="split">Beside the headline</option>
+          <option value="background">Full background behind the text</option>
+          <option value="below">Wide, below the button</option>
+        </select>
+        <label>Benefit card photos</label>
+        <div class="mini">
+          <div class="photo"><div class="photo-row" id="b1Row"><img id="b1Thumb" alt=""><label class="up">⬆ Card 1<input type="file" id="b1File" accept="image/*"></label><button type="button" class="rm" data-rm="b1">Remove</button></div></div>
+          <div class="photo"><div class="photo-row" id="b2Row"><img id="b2Thumb" alt=""><label class="up">⬆ Card 2<input type="file" id="b2File" accept="image/*"></label><button type="button" class="rm" data-rm="b2">Remove</button></div></div>
+          <div class="photo"><div class="photo-row" id="b3Row"><img id="b3Thumb" alt=""><label class="up">⬆ Card 3<input type="file" id="b3File" accept="image/*"></label><button type="button" class="rm" data-rm="b3">Remove</button></div></div>
+        </div>
+        <p class="hint" id="imgInfo">Photos are resized and saved inside the downloaded page, so it stays one file. Only use photos you own or have the right to use.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>3 · Benefits</legend>
         <label for="b1">Benefit 1 — title | text</label>
         <input type="text" id="b1" value="One plan, not fifty tabs | Flights, stays and things to do in a single timeline.">
         <label for="b2">Benefit 2</label>
@@ -95,14 +140,14 @@
       </fieldset>
 
       <fieldset>
-        <legend>3 · How it works</legend>
+        <legend>4 · How it works</legend>
         <label for="s1">Step 1</label><input type="text" id="s1" value="Tell us where and when">
         <label for="s2">Step 2</label><input type="text" id="s2" value="Tweak the draft plan">
         <label for="s3">Step 3</label><input type="text" id="s3" value="Share it and go">
       </fieldset>
 
       <fieldset>
-        <legend>4 · FAQ</legend>
+        <legend>5 · FAQ</legend>
         <label for="faq">One per line: question | answer</label>
         <textarea id="faq" rows="5">Is it really free? | Yes. Planning is free. You only pay when you book through a partner.
 Do I need an account? | Not to try it. You only need one to save plans.
@@ -110,7 +155,7 @@ Which countries does it cover? | Anywhere with public travel data. Coverage grow
       </fieldset>
 
       <fieldset>
-        <legend>5 · Style</legend>
+        <legend>6 · Style</legend>
         <div class="themes" id="themes">
           <div class="theme on" data-t="clean"><i style="background:linear-gradient(135deg,#fff 50%,#eef0f3 50%)"></i>Clean</div>
           <div class="theme" data-t="bold"><i style="background:linear-gradient(135deg,#111 50%,#222 50%)"></i>Bold</div>
@@ -122,7 +167,7 @@ Which countries does it cover? | Anywhere with public travel data. Coverage grow
       </fieldset>
 
       <fieldset>
-        <legend>6 · Sections</legend>
+        <legend>7 · Sections</legend>
         <label class="check"><input type="checkbox" id="showBenefits" checked> Benefits</label>
         <label class="check"><input type="checkbox" id="showSteps" checked> How it works</label>
         <label class="check"><input type="checkbox" id="showProof"> Testimonial placeholder</label>
@@ -165,6 +210,40 @@ const THEMES = {
   warm:{bg:'#f7f2ea',ink:'#2a211b',muted:'#6e6157',soft:'#efe6d9',font:'Georgia,"Times New Roman",serif',head:'Fraunces,Georgia,serif',finalBg:'#2a211b',finalInk:'#f7f2ea'}
 };
 
+// ---------- photos ----------
+const images = {hero:null, b1:null, b2:null, b3:null};   // data URLs from uploads
+const safeUrl = u => /^https?:\/\/[^\s"'()<>\\]+$/i.test(u.trim()) ? u.trim() : '';
+
+function compress(file, max){
+  return new Promise((resolve, reject) => {
+    if(!file.type.startsWith('image/')) return reject(new Error('Not an image'));
+    const img = new Image();
+    img.onload = () => {
+      const s = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+      const c = document.createElement('canvas');
+      c.width = Math.round(img.naturalWidth * s); c.height = Math.round(img.naturalHeight * s);
+      const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height);
+      g.drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(img.src);
+      resolve(c.toDataURL('image/jpeg', .82));   // also strips location/camera data from the photo
+    };
+    img.onerror = () => reject(new Error('Could not read image'));
+    img.src = URL.createObjectURL(file);
+  });
+}
+function heroSrc(){ return images.hero || safeUrl($('heroUrl').value); }
+function updateThumbs(){
+  ['hero','b1','b2','b3'].forEach(k => {
+    const src = k === 'hero' ? heroSrc() : images[k];
+    $(k+'Row').classList.toggle('has', !!src);
+    if(src) $(k+'Thumb').src = src; else $(k+'Thumb').removeAttribute('src');
+  });
+  const kb = Object.values(images).filter(Boolean).reduce((n, d) => n + d.length * .75 / 1024, 0);
+  $('imgInfo').textContent = kb
+    ? `Embedded photos add about ${Math.round(kb)} KB to the page.${kb > 1500 ? ' ⚠️ That is heavy: fewer or smaller photos will load faster.' : ''}`
+    : 'Photos are resized and saved inside the downloaded page, so it stays one file. Only use photos you own or have the right to use.';
+}
+
 function build(){
   const t = THEMES[theme], accent = $('accent').value;
   const btnText = contrast(accent,'#ffffff') >= 4.5 ? '#ffffff' : '#111111';
@@ -176,6 +255,30 @@ function build(){
   const benefits = ['b1','b2','b3'].map(id => split($(id).value));
   const year = new Date().getFullYear();
   const desc = esc($('sub').value.slice(0,155));
+  const hero = heroSrc(), layout = $('heroLayout').value, alt = esc($('heroAlt').value.trim());
+  const heroIsUrl = hero && !hero.startsWith('data:');
+  const heroText = `
+    <span class="eyebrow" aria-hidden="true"></span>
+    <h1>${headline}</h1>
+    <p class="lead">${sub}</p>
+    <a class="btn" href="${url}">${cta}</a>
+    ${$('risk').value ? `<p class="note">${esc($('risk').value)}</p>` : ''}`;
+  const heroImg = cls => `<img class="${cls}" src="${esc(hero)}" alt="${alt}" fetchpriority="high">`;
+  let heroHTML;
+  if(!hero) heroHTML = `<section class="wrap hero">${heroText}
+  </section>`;
+  else if(layout === 'background') heroHTML = `<section class="hero-bg" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.62)),url('${esc(hero)}')"${alt ? ` role="img" aria-label="${alt}"` : ''}>
+    <div class="wrap">${heroText}
+    </div>
+  </section>`;
+  else if(layout === 'below') heroHTML = `<section class="wrap hero">${heroText}
+    ${heroImg('hero-wide')}
+  </section>`;
+  else heroHTML = `<section class="wrap hero hero-split">
+    <div>${heroText}
+    </div>
+    ${heroImg('hero-img')}
+  </section>`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -187,6 +290,7 @@ function build(){
 <meta property="og:title" content="${brand} · ${headline}">
 <meta property="og:description" content="${desc}">
 <meta property="og:type" content="website">
+${heroIsUrl ? `<meta property="og:image" content="${esc(hero)}">` : ''}
 ${fonts}
 <style>
 :root{--bg:${t.bg};--ink:${t.ink};--muted:${t.muted};--soft:${t.soft};--accent:${accent};--on-accent:${btnText}}
@@ -224,24 +328,27 @@ details p{margin-top:10px;color:var(--muted);max-width:65ch}
 .final p{opacity:.75;margin:14px auto 30px;max-width:46ch}
 footer{padding:36px 0 48px;color:var(--muted);font-size:.9rem}
 footer a{color:inherit}
+.hero-split{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px;display:block}
+.hero-wide{width:100%;aspect-ratio:16/8;object-fit:cover;border-radius:24px;margin-top:56px;display:block}
+.hero-bg{min-height:78vh;display:flex;align-items:center;background-size:cover;background-position:center;color:#fff;padding:100px 0}
+.hero-bg h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.hero-bg .lead,.hero-bg .note{color:rgba(255,255,255,.88)}
+.card{overflow:hidden}
+.card-img{display:block;width:calc(100% + 60px);margin:-30px -30px 22px;aspect-ratio:4/3;object-fit:cover}
+@media (max-width:760px){.hero-split{grid-template-columns:1fr;gap:36px}.hero-img{aspect-ratio:4/3}.hero-bg{min-height:70vh;padding:72px 0}}
 @media (max-width:600px){section.wrap{padding:60px 24px}section.hero{padding-top:32px}}
 </style>
 </head>
 <body>
 <div class="wrap"><nav><span class="logo">${brand}</span><a class="btn" href="${url}">${cta}</a></nav></div>
 <main>
-  <section class="wrap hero">
-    <span class="eyebrow" aria-hidden="true"></span>
-    <h1>${headline}</h1>
-    <p class="lead">${sub}</p>
-    <a class="btn" href="${url}">${cta}</a>
-    ${$('risk').value ? `<p class="note">${esc($('risk').value)}</p>` : ''}
-  </section>
+  ${heroHTML}
 ${$('showBenefits').checked ? `
   <section class="wrap">
     <h2>Why ${brand}</h2>
     <div class="grid">
-${benefits.map(([h,p]) => `      <div class="card"><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join('\n')}
+${benefits.map(([h,p],i) => `      <div class="card">${images['b'+(i+1)] ? `<img class="card-img" src="${images['b'+(i+1)]}" alt="${esc(h)}" loading="lazy">` : ''}<h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join('\n')}
     </div>
   </section>` : ''}
 ${$('showSteps').checked ? `
@@ -291,7 +398,19 @@ function render(){
   }, 120);
 }
 
-$('f').addEventListener('input', render);
+$('f').addEventListener('input', () => { updateThumbs(); render(); });
+['hero','b1','b2','b3'].forEach(k => {
+  $(k+'File').addEventListener('change', async e => {
+    const file = e.target.files[0]; if(!file) return;
+    try { images[k] = await compress(file, k === 'hero' ? 1800 : 1000); if(k === 'hero') $('heroUrl').value = ''; }
+    catch(err){ toast('That file is not a usable image'); }
+    e.target.value = ''; updateThumbs(); render();
+  });
+});
+document.querySelectorAll('[data-rm]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.rm; images[k] = null; if(k === 'hero') $('heroUrl').value = '';
+  updateThumbs(); render();
+}));
 document.querySelectorAll('.theme').forEach(el => el.addEventListener('click', () => {
   document.querySelectorAll('.theme').forEach(x => x.classList.remove('on'));
   el.classList.add('on'); theme = el.dataset.t; render();
