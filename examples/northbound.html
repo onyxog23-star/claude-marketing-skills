@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northbound · Plan your next trip in 10 minutes, not 10 tabs</title>
+<meta name="description" content="Tell Northbound where you want to go and how you like to travel. Get a day-by-day plan you can edit, share and book.">
+<meta property="og:title" content="Northbound · Plan your next trip in 10 minutes, not 10 tabs">
+<meta property="og:description" content="Tell Northbound where you want to go and how you like to travel. Get a day-by-day plan you can edit, share and book.">
+<meta property="og:type" content="website">
+
+<style>
+:root{--bg:#ffffff;--ink:#111318;--muted:#5b6170;--soft:#f3f4f7;--accent:#2f5bff;--on-accent:#ffffff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section.wrap{padding:84px 24px}
+h1,h2,h3{font-family:inherit;letter-spacing:-.02em}
+h1{font-size:clamp(2.3rem,6vw,4.2rem);line-height:1.04;max-width:15ch}
+h2{font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.12;margin-bottom:10px}
+h3{font-size:1.15rem;margin-bottom:6px}
+.lead{font-size:1.22rem;color:var(--muted);max-width:50ch;margin:22px 0 34px}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:700;padding:16px 30px;border-radius:999px;min-height:44px;font-family:system-ui,sans-serif}
+.btn:hover{filter:brightness(1.08)}
+.note{font-size:.92rem;color:var(--muted);margin-top:14px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+nav .logo{font-weight:800;font-size:1.15rem;font-family:inherit}
+nav .btn{padding:10px 20px;font-size:.95rem}
+section.hero{padding-top:56px}
+.eyebrow{display:inline-block;width:42px;height:4px;background:var(--accent);border-radius:4px;margin-bottom:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:34px}
+.card{background:var(--soft);border-radius:18px;padding:30px}
+.card p,.step p{color:var(--muted)}
+.num{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800;margin-bottom:14px;font-family:system-ui,sans-serif}
+.quote{background:var(--soft);border-radius:18px;padding:40px;border:2px dashed var(--muted)}
+.quote p{font-size:1.3rem;font-family:inherit}
+.quote small{display:block;margin-top:12px;color:var(--muted)}
+details{border-bottom:1px solid color-mix(in srgb,var(--ink) 14%,transparent);padding:20px 0}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin-top:10px;color:var(--muted);max-width:65ch}
+.final{background:#111318;color:#ffffff;text-align:center;border-radius:24px;padding:80px 24px}
+.final h2{max-width:20ch;margin:0 auto}
+.final p{opacity:.75;margin:14px auto 30px;max-width:46ch}
+footer{padding:36px 0 48px;color:var(--muted);font-size:.9rem}
+footer a{color:inherit}
+@media (max-width:600px){section.wrap{padding:60px 24px}section.hero{padding-top:32px}}
+</style>
+</head>
+<body>
+<div class="wrap"><nav><span class="logo">Northbound</span><a class="btn" href="#start">Plan my trip</a></nav></div>
+<main>
+  <section class="wrap hero">
+    <span class="eyebrow" aria-hidden="true"></span>
+    <h1>Plan your next trip in 10 minutes, not 10 tabs</h1>
+    <p class="lead">Tell Northbound where you want to go and how you like to travel. Get a day-by-day plan you can edit, share and book.</p>
+    <a class="btn" href="#start">Plan my trip</a>
+    <p class="note">Free to try. No card needed.</p>
+  </section>
+
+  <section class="wrap">
+    <h2>Why Northbound</h2>
+    <div class="grid">
+      <div class="card"><h3>One plan, not fifty tabs</h3><p>Flights, stays and things to do in a single timeline.</p></div>
+      <div class="card"><h3>Made for how you travel</h3><p>Slow mornings or packed days: the plan adapts to you.</p></div>
+      <div class="card"><h3>Share in one link</h3><p>Friends can comment and vote without signing up.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2>How it works</h2>
+    <div class="grid">
+      <div class="step"><span class="num">1</span><h3>Tell us where and when</h3></div>
+      <div class="step"><span class="num">2</span><h3>Tweak the draft plan</h3></div>
+      <div class="step"><span class="num">3</span><h3>Share it and go</h3></div>
+    </div>
+  </section>
+
+
+  <section class="wrap">
+    <h2>Questions</h2>
+    <details><summary>Is it really free?</summary><p>Yes. Planning is free. You only pay when you book through a partner.</p></details>
+    <details><summary>Do I need an account?</summary><p>Not to try it. You only need one to save plans.</p></details>
+    <details><summary>Which countries does it cover?</summary><p>Anywhere with public travel data. Coverage grows every month.</p></details>
+  </section>
+
+  <section class="wrap">
+    <div class="final">
+      <h2>Plan your next trip in 10 minutes, not 10 tabs</h2>
+      <p>Tell Northbound where you want to go and how you like to travel. Get a day-by-day plan you can edit, share and book.</p>
+      <a class="btn" href="#start">Plan my trip</a>
+    </div>
+  </section>
+</main>
+<footer class="wrap">© 2026 Northbound</footer>
+</body>
+</html>
